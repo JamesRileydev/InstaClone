@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import dummyData from './dummy-data';
+import PostList from './components/PostContainer/PostList';
+
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      instaPosts: []
+    };
+  }
+
+  componentDidMount() {
+    this.getPosts(dummyData);
+  }
+
+  getPosts = data =>{
+    fetch(data)
+      .then(res=> {
+        return res.json();
+      })
+      .then(data => {
+        this.setState({ instaPosts: data.dummyData})
+      })
+      .catch(err => {
+        throw new Error(err);
+      })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <header className="Header">Insta-Clone</header>
+          <PostList list={this.state.instaPosts}/>
       </div>
     );
   }
