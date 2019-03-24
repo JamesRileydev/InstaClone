@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types';
-
 import "./PostList.css";
 
 const Post = props => {
@@ -9,7 +8,6 @@ const Post = props => {
         <div>{props.post.username}</div>
         <div>{props.post.id}</div>
         <div>{props.post.likes}</div>
-
     </div>
     )
 }
@@ -22,4 +20,5 @@ Post.propTypes = {
         comments: PropTypes.array
     })
 };
+
 export default Post;
