@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import "./CommentSection.css";
 
 const Comment = props => {
-    console.log(props)
     return (
         <div>
             <div>{props.comment.id}</div>
@@ -18,6 +17,7 @@ Comment.propTypes = {
     id: PropTypes.string,
     comments: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string
-    }))};
+    })
+)};
 
 export default Comment;
