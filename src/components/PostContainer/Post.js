@@ -4,18 +4,18 @@ import "./PostList.css";
 
 const Post = props => {
     return (
-    <div>
+    <div className="post">
         <div>{props.post.username}</div>
-        <div>{props.post.id}</div>
-        <div>{props.post.likes}</div>
+        <img src={props.post.thumbnailUrl} alt={props.post.imageUrl}/>
+        <div>{props.post.likes} Likes</div>
     </div>
     )
 }
 
 Post.propTypes = {
     post: PropTypes.shape({
-        id: PropTypes.string,
         username: PropTypes.string,
+        thumbnailUrl: PropTypes.string,
         likes: PropTypes.number,
         comments: PropTypes.array
     })
