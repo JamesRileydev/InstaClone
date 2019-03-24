@@ -8,32 +8,32 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      instaPosts: []
+      posts: dummyData
     };
   }
 
-  componentDidMount() {
-    this.getPosts(dummyData);
-  }
+  // componentDidMount() {
+  //   this.getPosts(dummyData);
+  // }
 
-  getPosts = data =>{
-    fetch(data)
-      .then(res=> {
-        return res.json();
-      })
-      .then(data => {
-        this.setState({ instaPosts: data.dummyData})
-      })
-      .catch(err => {
-        throw new Error(err);
-      })
-  }
+  // getPosts = dummyData =>{
+  //   fetch(dummyData)
+  //     .then(res=> {
+  //       return res.json();
+  //     })
+  //     .then(data => {
+  //       this.setState({ instaPosts: data.dummyData})
+  //     })
+  //     .catch(err => {
+  //       throw new Error(err);
+  //     })
+  // }
 
   render() {
     return (
       <div className="App">
         <header className="Header">Insta-Clone</header>
-          <PostList list={this.state.instaPosts}/>
+          <PostList posts={this.state.posts}/>
       </div>
     );
   }
