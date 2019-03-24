@@ -8,18 +8,16 @@ const Comment = props => {
         <div>
             <div>{props.comment.id}</div>
             <div>{props.comment.comments.map(comments => (
-                <div>{comments.text}</div>
+                <div key={comments.id}>{comments.text}</div>
             ))}</div>
         </div>
     )
 }
 
 Comment.propTypes = {
-    comment: PropTypes.shape({
-        id: PropTypes.string,
-        comments: PropTypes.shape({
-            text: PropTypes.string})
-    })
-};
+    id: PropTypes.string,
+    comments: PropTypes.arrayOf(PropTypes.shape({
+        text: PropTypes.string
+    }))};
 
 export default Comment;
