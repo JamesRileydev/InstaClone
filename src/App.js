@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import dummyData from './dummy-data';
 import PostList from './components/PostContainer/PostList';
-import CommentSection from './components/CommentSection/CommentSection';
+import SearchBar from './components/SearchBar/SearchBar';
+
 
 class App extends Component {
   constructor() {
@@ -15,9 +16,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="Header">Insta-Clone</header>
+          <SearchBar />
           <PostList posts={this.state.posts}/>
-          <CommentSection posts={this.state.posts}/>
       </div>
     );
   }
